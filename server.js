@@ -2,13 +2,21 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const path = require('path');
+var cors = require('cors')
 const { Server } = require('socket.io');
 const ACTIONS = require('./src/Actions');
 require('dotenv').config();
 
 
 const server = http.createServer(app);
-const io = new Server(server);
+// const io = new Server(server);
+const io = new Server(server, {
+    cors: {
+        origin: ["https://realtime-codeeditor2643.netlify.app/"],
+        methods: ["POST", "GET"],
+        credentials: true
+      }
+});
 
 app.use(express.static('build'));
 app.use((req, res, next) => {

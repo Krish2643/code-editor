@@ -12,7 +12,7 @@ const server = http.createServer(app);
  //const io = new Server(server);
 const io = new Server(server, {
     cors: {
-        origin: "*",
+        origin: "https://code-editor-v431.vercel.app/",
         methods: ["POST", "GET"],
         credentials: true,
         

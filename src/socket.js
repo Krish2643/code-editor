@@ -8,6 +8,5 @@ export const initSocket = async () => {
         timeout: 10000,
         transports: ['websocket', 'polling'],
     };
-    return io('https://master--realtime-codeeditor2643.netlify.app/', options);
-    // return io(process.env.REACT_APP_BACKEND_URL || '/', options);
+    return io(process.env.REACT_APP_BACKEND_URL || '/', options);
 };

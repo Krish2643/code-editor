@@ -12,8 +12,7 @@ const server = http.createServer(app);
  //const io = new Server(server);
 const io = new Server(server, {
     cors: {
-        // origin: "*",
-      path: 'https://master--codeeditor2643.netlify.app/',
+        origin: process.env.REACT_APP_BACKEND_URL,
         methods: ["POST", "GET"],
         credentials: true,
       },

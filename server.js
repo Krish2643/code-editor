@@ -12,10 +12,10 @@ const server = http.createServer(app);
  //const io = new Server(server);
 const io = new Server(server, {
     cors: {
-        origin: "*",
+        origin: "https://master--realtime-codeeditor2643.netlify.app",
         methods: ["POST", "GET"],
         credentials: true,
-        allowedHeaders: ['Content-Type'],
+        
       },
 });
 

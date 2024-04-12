@@ -11,11 +11,14 @@ require('dotenv').config();
 const server = http.createServer(app);
 // const io = new Server(server);
 const io = new Server(server, {
+    path: '/',
+    transports: ['websocket', 'polling'],
     cors: {
         origin: "*",
         methods: ["POST", "GET"],
         credentials: true
-      }
+      },
+      allowEIO3: true,
 });
 
 app.use(express.static('build'));

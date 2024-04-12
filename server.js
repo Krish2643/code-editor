@@ -9,22 +9,23 @@ require('dotenv').config();
 
 
 const server = http.createServer(app);
-// const io = new Server(server);
+ //const io = new Server(server);
 const io = new Server(server, {
-    path: '/',
-    transports: ['websocket', 'polling'],
     cors: {
         origin: "*",
         methods: ["POST", "GET"],
         credentials: true
       },
-      allowEIO3: true,
 });
 
 app.use(express.static('build'));
 app.use((req, res, next) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
+app.get("/hello", (req, res)=>{
+        res.send("hello world");
+})
 
 
 const userSocketMap = {}

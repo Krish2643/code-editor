@@ -9,14 +9,14 @@ require('dotenv').config();
 
 
 const server = http.createServer(app);
- //const io = new Server(server);
-const io = new Server(server, {
-    cors: {
-        origin: process.env.REACT_APP_BACKEND_URL,
-        methods: ["POST", "GET"],
-        credentials: true,
-      },
-});
+const io = new Server(server);
+// const io = new Server(server, {
+//     cors: {
+//         origin: process.env.REACT_APP_BACKEND_URL,
+//         methods: ["POST", "GET"],
+//         credentials: true,
+//       },
+// });
 
 app.use(express.static('build'));
 app.use((req, res, next) => {
@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/hello", (req, res)=>{
-        res.send("hello world");
+        res.send("this is hello world");
 })
 
 
